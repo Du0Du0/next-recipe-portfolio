@@ -5,8 +5,8 @@ export default function Home({ meals, category }) {
 	//idMeal
 	//strMeal
 	//strMealThumb
-	console.log(meals);
-	console.log(category);
+	// console.log(meals);
+	// console.log(category);
 
 	return (
 		<>

@@ -5,16 +5,7 @@ import Link from 'next/link';
 import { HashLoader } from 'react-spinners';
 import { useState } from 'react';
 
-//react-spinners
-export function Pic({
-	imgSrc,
-	style,
-	imgTxt,
-	children, //해당 아톰 컴포넌트가 호출되는 위치에서의 className props를 내부로 전달
-	className,
-	priority = false,
-	url,
-}) {
+export function Pic({ imgSrc, style, imgTxt, children, className, priority = false, url }) {
 	const [IsLoaded, setIsLoaded] = useState(false);
 	return (
 		<div className={clsx(styles.pic, className)} style={style}>
@@ -42,17 +33,7 @@ export function Pic({
 				</>
 			)}
 			{/* spinner로딩 */}
-			<HashLoader
-				cssOverride={{
-					position: 'absolute',
-					top: '50%',
-					left: '50%',
-					transform: 'translate(-50%, -50%)',
-				}}
-				size={100}
-				color={'aqua'}
-				loading={!IsLoaded}
-			/>
+			<HashLoader cssOverride={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} size={100} color={'aqua'} loading={!IsLoaded} />
 		</div>
 	);
 }
