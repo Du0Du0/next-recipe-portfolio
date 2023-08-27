@@ -13,7 +13,7 @@ export default function Home({ meals, category }) {
 		<>
 			<Head>
 				<title>Main Page</title>
-				<Swiper recipe={meals} category={category} />
+				<Swiper recipe={meals.slice(0, 6)} category={category} />
 				{/* 
 				Swiper 컴포넌트 작업 계획		
 				Swiper - organisms
