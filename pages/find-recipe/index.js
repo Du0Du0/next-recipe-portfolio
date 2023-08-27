@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import axios from 'axios';
+import styles from './style.module.scss';
 
 export default function Home({ meals, category }) {
 	//idMeal
@@ -13,7 +13,7 @@ export default function Home({ meals, category }) {
 			<Head>
 				<title>Main Page</title>
 			</Head>
-			<h2>Main Page</h2>
+			<div className={styles.box}></div>
 		</>
 	);
 }
