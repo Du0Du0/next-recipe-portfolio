@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import axios from 'axios';
 import Title from '@/components/atoms/text/Title';
 import Text from '@/components/atoms/text/Text';
+import { Pic } from '@/components/atoms/pic/Pic';
 
 export default function Home({ meals }) {
 	//idMeal
@@ -21,10 +22,9 @@ export default function Home({ meals }) {
 			</Head>
 
 			<main className={clsx(styles.main)}>
-				{/* 해당 요소를 활성화 시키고 싶을때에는 props으로 boolean값 전달 */}
-				<Text type={'breadcrumb'} tag={'span'} isOn={true}>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, amet!
-				</Text>
+				<div className={clsx(styles.picFrame)}>
+					<Pic imgSrc={meals[0].strMealThumb} />
+				</div>
 			</main>
 		</>
 	);

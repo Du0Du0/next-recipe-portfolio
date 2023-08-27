@@ -2,7 +2,9 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import styles from './Pic.module.scss';
 import Link from 'next/link';
+import { HashLoader } from 'react-spinners';
 
+//react-spinners
 export function Pic({
 	imgSrc,
 	style,
@@ -37,6 +39,17 @@ export function Pic({
 					{url ? <Link href={url}>children</Link> : children}
 				</>
 			)}
+			{/* spinner로딩 */}
+			<HashLoader
+				cssOverride={{
+					position: 'absolute',
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+				}}
+				size={100}
+				color={'aqua'}
+			/>
 		</div>
 	);
 }
