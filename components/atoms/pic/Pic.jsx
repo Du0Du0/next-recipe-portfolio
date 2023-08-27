@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import clsx from 'clsx';
-import styles from './Visual.module.scss';
+import styles from './Pic.module.scss';
 import Link from 'next/link';
 
-export function Visual({
+export function Pic({
 	imgSrc,
 	style,
 	imgTxt,
