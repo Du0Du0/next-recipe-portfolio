@@ -15,10 +15,9 @@ export default function Home({ meals, category }) {
 				<title>Main Page</title>
 				<Swiper recipe={meals} category={category} />
 				{/* 
-				Swiper 컴포넌트 작업 계획
-				Visual - Organism
-				Swiper-wrapper - molecules
-				Swier-slide - atom
+				Swiper 컴포넌트 작업 계획		
+				Swiper - organisms
+				SwiperSlide - molecules
 				ImgList - molecules
 				ImgSlide - atom
 				Controls - molecules

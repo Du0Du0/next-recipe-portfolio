@@ -22,7 +22,7 @@ const orbitron = Orbitron({
 	adjustFontFallback: false,
 });
 
-function Text({ children, url, style, className, type, tag = 'p', isOn = false }) {
+export function Text({ children, url, style, className, type, tag = 'p', isOn = false }) {
 	//next/useRouter훅으로부터 객체를 반환받고
 	const router = useRouter();
 	//해당객체에 있는 pathname값 가져오기 (현재 활성화되어있는 라우터명)

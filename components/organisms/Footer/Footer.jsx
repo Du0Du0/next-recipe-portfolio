@@ -1,7 +1,7 @@
-import Title from '@/components/atoms/text/Title';
+import { Title } from '@/components/atoms/text/Title';
 import styles from './Footer.module.scss';
 import clsx from 'clsx';
-import Text from '@/components/atoms/text/Text';
+import { Text } from '@/components/atoms/text/Text';
 
 function Footer() {
 	return (
