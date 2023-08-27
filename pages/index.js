@@ -21,26 +21,28 @@ export default function Home({ meals }) {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main className={clsx(styles.main)}>
-				<div className={clsx(styles.picFrame)}>
-					<Pic imgSrc={meals[0].strMealThumb} />
-				</div>
-			</main>
+			<main className={clsx(styles.main)}></main>
 		</>
 	);
 }
 
 // ssg방식 (한번만 build됨)
 export async function getStaticProps() {
-	//props로 데이터 넘길때에는 data안쪽의 값까지 뽑아낸다음에 전달
-	const { data } = await axios.get('/filter.php?c=Seafood');
-	console.log('response', data);
+	const list = [];
+	const { data: obj } = await axios.get('/categories.php');
+	const items = obj.categories;
+	items.forEach((el) => list.push(el.strCategory));
+	const newList = list.filter((el) => el !== 'Goat' && el !== 'Vegan' && el !== 'Starter');
+
+	const randomNum = Math.floor(Math.random() * newList.length);
+
+	const { data } = await axios.get(`/filter.php?c=${newList[randomNum]}`);
 
 	return {
 		//이전에 가져온 응답 데이터를 props 속성에 할당하여 해당 데이터를 페이지 컴포넌트 내에서 사용
 		props: data,
 		//아래 추가하면 ISR 방식으로 변경
 		//24시간마다 재생성
-		revalidate: 60 * 60 * 24,
+		revalidate: 10,
 	};
 }
