@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './style.module.scss';
+import Swiper from '@/components/organisms/Swiper/Swiper';
 
 export default function Home({ meals, category }) {
 	//idMeal
@@ -12,6 +13,7 @@ export default function Home({ meals, category }) {
 		<>
 			<Head>
 				<title>Main Page</title>
+				<Swiper recipe={meals} category={category} />
 				{/* 
 				Swiper 컴포넌트 작업 계획
 				Visual - Organism
