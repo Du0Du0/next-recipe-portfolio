@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './Text.module.scss';
 import clsx from 'clsx';
 import { Nanum_Myeongjo, Orbitron } from 'next/font/google';
+import { useRouter } from 'next/router';
 
 const nanum = Nanum_Myeongjo({
 	subsets: ['latin'],
@@ -18,10 +19,17 @@ const orbitron = Orbitron({
 });
 
 function Text({ children, url, style, className, type, tag = 'p', isOn = false }) {
+	//next/useRouter훅으로부터 객체를 반환받고
+	const router = useRouter();
+	//해당객체에 있는 pathname값 가져오기 (현재 활성화되어있는 라우터명)
+	const currentPath = router.pathname;
+
 	return React.createElement(
 		tag,
 		{
 			className: clsx(
+				//현재라우터명과 url로 가져온 라우터명이 동일하면 on클래스 추가
+				currentPath === url ? styles.on : '',
 				styles.txt,
 				className,
 				nanum.variable,

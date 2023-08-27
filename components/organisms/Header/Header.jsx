@@ -9,7 +9,7 @@ function Header() {
 			<Title url={'/'} type={'logo'}>
 				Home Cook
 			</Title>
-			<Navbar names={['Find Recipe', 'My Favorait']} gap={20} />
+			<Navbar names={['Find Recipe', 'My Favorait']} gap={80} />
 		</header>
 	);
 }

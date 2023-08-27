@@ -16,7 +16,8 @@
 		font-weight: 400;
 		font-style: italic;
 
-		&:hover {
+		&:hover,
+		&.on {
 			color: orange;
 		}
 	}
