@@ -62,7 +62,16 @@ function Title({ children, url, style, className, type, tag }) {
 			onMouseLeave: (e) => (e.target.style.color = style?.color),
 		},
 		//JSX Node
-		children
+		url
+			? React.createElement(
+					Link,
+					{
+						href: url,
+						style: { transitionDuration: '0.5s' },
+					},
+					children
+			  )
+			: children
 	);
 }
 export default Title;
