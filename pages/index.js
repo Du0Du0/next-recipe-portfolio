@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
-import Image from 'next/image';
+import { Visual, VisualWithText } from '@/components/pic/Visual';
 
 export default function Home({ meals }) {
 	const newMeals = meals.slice(0, 6);
@@ -18,22 +18,11 @@ export default function Home({ meals }) {
 			</Head>
 
 			<main className={clsx(styles.main)}>
+				<VisualWithText imgSrc={newMeals[0].strMealThumb} imgTxt={newMeals[0].strMeal} style={{ color: 'yellow', fontSize: 12 }} />
 				<figure className='visual'>
 					<article className='bg'>
 						{newMeals.map((item) => (
-							<div key={item.idMeal} className='pic' style={{ position: 'relative', width: 400, height: 300 }}>
-								<Image
-									src={item.strMealThumb}
-									alt={item.strMeal}
-									priority
-									fill
-									quality={100}
-									style={{ objectFit: 'cover' }}
-									//이미지 속성이 fill로 지정되어 있을경우 frame크기에 상관없이 초기 로딩시 전체 브라우저 크기의 100vw크기의 용량으로 가져오기 때문에 브라우저 폭에 출력될 크기를 지정해서 이미지 성능 향상
-
-									sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-								/>
-							</div>
+							<Visual key={item.idMeal} imgSrc={item.strMealThumb} />
 						))}
 					</article>
 
