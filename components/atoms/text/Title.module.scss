@@ -1,0 +1,12 @@
+.tit {
+	color: #333;
+
+	a {
+		font-size: inherit;
+		color: inherit;
+	}
+
+	&:hover {
+		color: orange;
+	}
+}
