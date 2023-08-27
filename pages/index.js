@@ -27,10 +27,12 @@ export default function Home({ meals }) {
 					//아예 hover색상같이 같이 그룹으로 전달
 					//style객체로 컬러값 자체를 전달하지 않으면
 					//module.sass에 있는 기본 호버 스타일 적용
-					style={{ color: 'violet', hoverColor: 'aqua' }}
+					//style={{ color: 'violet', hoverColor: 'aqua' }}
+					type={'logo'}
 				>
 					Hello
 				</Title>
+				<Title type={'slogan'}>Slogan</Title>
 			</main>
 		</>
 	);
