@@ -1,9 +1,11 @@
 .tit {
 	color: #333;
+	font-family: var(--font-nanum);
 
 	a {
 		font-size: inherit;
 		color: inherit;
+		font-family: inherit;
 	}
 
 	&:hover {
