@@ -12,6 +12,17 @@ export default function Home({ meals, category }) {
 		<>
 			<Head>
 				<title>Main Page</title>
+				{/* 
+				Swiper 컴포넌트 작업 계획
+				Visual - Organism
+				Swiper-wrapper - molecules
+				Swier-slide - atom
+				ImgList - molecules
+				ImgSlide - atom
+				Controls - molecules
+				Counter - molecules
+				Button - atom			
+			*/}
 			</Head>
 			<div className={styles.box}></div>
 		</>
