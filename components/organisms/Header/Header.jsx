@@ -1,5 +1,5 @@
-import Title from '../atoms/text/Title';
-import Navbar from '../molecules/Navbar';
+import Title from '../../atoms/text/Title';
+import Navbar from '../../molecules/NavBar/Navbar';
 import styles from './Header.module.scss';
 import clsx from 'clsx';
 
