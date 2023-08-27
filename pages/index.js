@@ -1,12 +1,14 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.scss';
+import styles from './Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
-import { Visual, VisualWithContent, VisualWithText } from '@/components/pic/Visual';
+import { Visual } from '@/components/pic/Visual';
 
 export default function Home({ meals }) {
-	const newMeals = meals.slice(0, 6);
-	console.log(newMeals);
+	//idMeal
+	//strMeal
+	//strMealThumb
+	console.log(meals);
 
 	return (
 		<>
@@ -18,25 +20,9 @@ export default function Home({ meals }) {
 			</Head>
 
 			<main className={clsx(styles.main)}>
-				<VisualWithText imgSrc={newMeals[0].strMealThumb} imgTxt={newMeals[0].strMeal} style={{ color: 'yellow', fontSize: 12 }} />
-
-				<VisualWithContent imgSrc={newMeals[1].strMealThumb} style={{ color: 'aqua' }}>
-					<strong>자식요소</strong>
-				</VisualWithContent>
-
-				<figure className='visual'>
-					<article className='bg'>
-						{newMeals.map((item) => (
-							<Visual key={item.idMeal} imgSrc={item.strMealThumb} />
-						))}
-					</article>
-
-					<article className='list'>
-						{newMeals.map((item) => (
-							<h2 key={item.idMeal}>{item.strMeal}</h2>
-						))}
-					</article>
-				</figure>
+				<Visual imgSrc={meals[0].strMealThumb}>
+					<span>Hello</span>
+				</Visual>
 			</main>
 		</>
 	);
