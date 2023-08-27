@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 import clsx from 'clsx';
+import axios from 'axios';
 
-export default function Home() {
+export default function Home({ meals }) {
+	console.log('props', meals);
 	return (
 		<>
 			<Head>
@@ -17,4 +19,19 @@ export default function Home() {
 			</main>
 		</>
 	);
+}
+
+// ssg방식 (한번만 build됨)
+export async function getStaticProps() {
+	//props로 데이터 넘길때에는 data안쪽의 값까지 뽑아낸다음에 전달
+	const { data } = await axios.get('/filter.php?c=Seafood');
+	console.log('response', data);
+
+	return {
+		//이전에 가져온 응답 데이터를 props 속성에 할당하여 해당 데이터를 페이지 컴포넌트 내에서 사용
+		props: data,
+		//아래 추가하면 ISR 방식으로 변경
+		//24시간마다 재생성
+		revalidate: 60 * 60 * 24,
+	};
 }
