@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styles from '@/styles/Home.module.scss';
 import clsx from 'clsx';
 import axios from 'axios';
-import { Visual, VisualWithText } from '@/components/pic/Visual';
+import { Visual, VisualWithContent, VisualWithText } from '@/components/pic/Visual';
 
 export default function Home({ meals }) {
 	const newMeals = meals.slice(0, 6);
@@ -19,6 +19,11 @@ export default function Home({ meals }) {
 
 			<main className={clsx(styles.main)}>
 				<VisualWithText imgSrc={newMeals[0].strMealThumb} imgTxt={newMeals[0].strMeal} style={{ color: 'yellow', fontSize: 12 }} />
+
+				<VisualWithContent imgSrc={newMeals[1].strMealThumb} style={{ color: 'aqua' }}>
+					<strong>자식요소</strong>
+				</VisualWithContent>
+
 				<figure className='visual'>
 					<article className='bg'>
 						{newMeals.map((item) => (
