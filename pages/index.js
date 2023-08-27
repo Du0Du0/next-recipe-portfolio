@@ -20,7 +20,7 @@ export default function Home({ meals }) {
 			</Head>
 
 			<main className={clsx(styles.main)}>
-				<Title
+				{/* <Title
 					url={'/abc'}
 					className={styles.txt}
 					//style에 컬러값 적용시 hover값까지 같이 스크립트로 덮어쓰기 되므로
@@ -32,7 +32,10 @@ export default function Home({ meals }) {
 				>
 					Hello
 				</Title>
-				<Title type={'slogan'}>Slogan</Title>
+				<Title type={'slogan'}>Slogan</Title> */}
+				<Title tag={'h3'} type={'slogan'}>
+					Hello
+				</Title>
 			</main>
 		</>
 	);
