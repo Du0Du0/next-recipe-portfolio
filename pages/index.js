@@ -6,11 +6,12 @@ import Title from '@/components/atoms/text/Title';
 import Text from '@/components/atoms/text/Text';
 import { Pic } from '@/components/atoms/pic/Pic';
 
-export default function Home({ meals }) {
+export default function Home({ meals, category }) {
 	//idMeal
 	//strMeal
 	//strMealThumb
 	console.log(meals);
+	console.log(category);
 
 	return (
 		<>
@@ -40,7 +41,7 @@ export async function getStaticProps() {
 
 	return {
 		//이전에 가져온 응답 데이터를 props 속성에 할당하여 해당 데이터를 페이지 컴포넌트 내에서 사용
-		props: data,
+		props: { ...data, category: newList[randomNum] },
 		//아래 추가하면 ISR 방식으로 변경
 		//24시간마다 재생성
 		revalidate: 10,
