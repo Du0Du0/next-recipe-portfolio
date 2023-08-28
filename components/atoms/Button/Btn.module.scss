@@ -6,4 +6,11 @@
 	border: 1px solid #666;
 	font: 12px/1 'arial';
 	color: #bbb;
+	transition: 0.5s;
+
+	&:hover,
+	&.on {
+		color: orange;
+		border: 1px solid orange;
+	}
 }
