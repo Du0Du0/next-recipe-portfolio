@@ -25,6 +25,6 @@ export const useRecipeBySearch = (SelectedSearch) => {
 		refetchOnWindowFocus: false,
 		cacheTime: 1000 * 60 * 60 * 24,
 		staleTime: 1000 * 60 * 60 * 24,
-		enabled: SelectedSearch !== undefined,
+		enabled: SelectedSearch !== '', //인수로 들어온 인풋이 빈 문자열이면 실행불가
 	});
 };
