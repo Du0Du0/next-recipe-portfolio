@@ -2,6 +2,7 @@ import Head from 'next/head';
 import styles from './style.module.scss';
 import Swiper from '@/components/organisms/Swiper/Swiper';
 import axios from 'axios';
+import Category from '@/components/molecules/Category/Category';
 
 export default function Recipe({ categories }) {
 	console.log(categories);
@@ -12,11 +13,7 @@ export default function Recipe({ categories }) {
 			</Head>
 
 			<section className={styles.recipePage}>
-				<nav>
-					{categories.map((el) => (
-						<button key={el.idCategory}>{el.strCategory}</button>
-					))}
-				</nav>
+				<Category items={categories} />
 			</section>
 		</>
 	);
