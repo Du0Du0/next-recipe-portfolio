@@ -1,34 +1,31 @@
 import Head from 'next/head';
 import styles from './style.module.scss';
 import Swiper from '@/components/organisms/Swiper/Swiper';
+import axios from 'axios';
 
-export default function Home({ meals, category }) {
+export default function Recipe({ categories }) {
+	console.log(categories);
 	return (
 		<>
 			<Head>
-				<title>Main Page</title>
+				<title>Recipe Page</title>
 			</Head>
 
-			<main>
-				<Swiper recipe={meals.slice(0, 6)} category={category} />
-			</main>
+			<section className={styles.recipePage}>
+				<nav>
+					{categories.map((el) => (
+						<button key={el.idCategory}>{el.strCategory}</button>
+					))}
+				</nav>
+			</section>
 		</>
 	);
 }
 
-// ssg방식 (한번만 build됨)
 export async function getStaticProps() {
-	const list = [];
-	const { data: obj } = await axios.get('/categories.php');
-	const items = obj.categories;
-	items.forEach((el) => list.push(el.strCategory));
-	const newList = list.filter((el) => el !== 'Goat' && el !== 'Vegan' && el !== 'Starter');
-
-	const randomNum = Math.floor(Math.random() * newList.length);
-	const { data } = await axios.get(`/filter.php?c=${newList[randomNum]}`);
+	const { data } = await axios.get('/categories.php');
 
 	return {
-		props: { ...data, category: newList[randomNum] },
-		revalidate: 60 * 60 * 24,
+		props: { categories: data.categories },
 	};
 }
