@@ -4,7 +4,7 @@ import { Text } from '../../atoms/text/Text';
 
 function Navbar({ names, gap }) {
 	return (
-		<nav className={clsx(styles.gnb)} style={{ gap: gap }}>
+		<nav className={clsx(styles.gnb)}>
 			{names.map((el) => {
 				const url = el.toLowerCase().split(' ').join('-');
 

@@ -1,7 +1,7 @@
 .card {
-	width: 30%;
-	height: 30vh;
-	margin-bottom: 100px;
+	width: 22%;
+	height: 35vh;
+	margin-bottom: 180px;
 	opacity: 0.5;
 	filter: saturate(20%);
 	transition: 0.5s;
@@ -9,5 +9,30 @@
 	&:hover {
 		opacity: 1;
 		filter: saturate(100%);
+	}
+
+	h3 {
+		padding: 10px 5px;
+		border-top: 1px solid #888;
+		//border-bottom: 1px solid #888;
+		margin: 20px 0px;
+	}
+}
+
+@media screen and (max-width: $tabletB) {
+	.card {
+		width: 30%;
+	}
+}
+
+@media screen and (max-width: $tabletS) {
+	.card {
+		width: 46%;
+	}
+}
+
+@media screen and (max-width: $mobile) {
+	.card {
+		width: 100%;
 	}
 }

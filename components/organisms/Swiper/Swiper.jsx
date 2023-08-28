@@ -7,6 +7,7 @@ import { useState } from 'react';
 import 'swiper/css';
 import Slider from '@/components/molecules/Slider/Slider';
 import Counter from '@/components/molecules/Counter/Counter';
+import { Text } from '@/components/atoms/text/Text';
 
 SwiperCore.use([Autoplay]);
 
@@ -15,7 +16,7 @@ function SwiperWrap({ recipe, category }) {
 
 	return (
 		<figure className={clsx(styles.visual)}>
-			<Title style={{ position: 'absolute', top: '20vh', left: '10vw', fontSize: 50, color: 'orange' }}>{category}</Title>
+			<Title style={{ color: 'orange' }}>{category}</Title>
 
 			<Slider data={recipe} index={Index} />
 			<Counter index={Index} len={recipe.length} />
@@ -42,9 +43,13 @@ function SwiperWrap({ recipe, category }) {
 						{({ isActive, isPrev, isNext }) => {
 							return (
 								<div className={clsx(isActive && styles.on, isPrev && styles.prev, isNext && styles.next)}>
-									<Title tag={'h3'} url={`/find-recipe/${item.idMeal}?name=${item.strMeal}&url=${item.strMealThumb}`} type={'slogan'}>
+									<Title tag={'h3'} type={'slogan'} style={{ color: '#fff' }}>
 										{item.strMeal.length > 25 ? item.strMeal.substr(0, 25) : item.strMeal}
 									</Title>
+
+									<Text type={'menu'} url={`/find-recipe/${item.idMeal}?name=${item.strMeal}`} className={clsx(styles.activeBtn)}>
+										View Recipe
+									</Text>
 								</div>
 							);
 						}}

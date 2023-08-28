@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import { useEffect } from 'react';
+
 const getRecipeByCategory = async ({ queryKey }) => {
 	const { data } = await axios.get(`/filter.php?c=${queryKey[1]}`);
 	return data?.meals || [];
@@ -12,7 +14,7 @@ export const useRecipeByCategory = (DebounceCategory, DebounceSearch) => {
 		refetchOnWindowFocus: false,
 		cacheTime: 1000 * 60 * 60 * 24,
 		staleTime: 1000 * 60 * 60 * 24,
-		//Search값이 비어있을때에만 동작 (사용자가 검색어 요청중이면 카
+		//Search값이 비어있을때에만 동작 (사용자가 검색어 요청중이면 카테고리 요청은 중지시키기 위함)
 		enabled: DebounceSearch === '',
 	});
 };
@@ -31,5 +33,20 @@ export const useRecipeBySearch = (DobounceSearch) => {
 		staleTime: 1000 * 60 * 60 * 24,
 		//Search값이 비어있지 않을때만 동작
 		enabled: DobounceSearch !== '', //인수로 들어온 인풋이 빈 문자열이면 실행불가
+	});
+};
+
+//아이디로 상세 레시피 fetching
+const getRecipeById = async ({ queryKey }) => {
+	const { data } = await axios.get(`/lookup.php?i=${queryKey[1]}`);
+	console.log(data);
+	return data?.meals[0] || '';
+};
+export const useRecipeById = (DebounceId) => {
+	return useQuery(['RecipeById', DebounceId], getRecipeById, {
+		refetchOnMount: false,
+		refetchOnWindowFocus: false,
+		cacheTime: 1000 * 60 * 60 * 24,
+		staleTime: 1000 * 60 * 60 * 24,
 	});
 };
