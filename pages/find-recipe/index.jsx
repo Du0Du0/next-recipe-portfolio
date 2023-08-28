@@ -6,6 +6,7 @@ import Category from '@/components/molecules/Category/Category';
 import { useRecipeByCategory } from '@/hooks/useRecipe';
 import { useState } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
+import Card from '@/components/molecules/Card/Card';
 
 export default function Recipe({ categories }) {
 	const [Selected, setSelected] = useState(categories[0].strCategory);
@@ -13,6 +14,7 @@ export default function Recipe({ categories }) {
 	//useDebounce는 컴포넌트의 재랜더링 자체를 막는 것이 아닌
 	//특정 State가 변경될때마다 실행되는 무거운 함수의 호출 자체를 Debouncing하기 위함
 	const DebouncedSelected = useDebounce(Selected);
+	const { data: dataByCategory, isSuccess: isCategory } = useRecipeByCategory(DebouncedSelected);
 	const { data, isSuccess } = useRecipeByCategory(DebouncedSelected);
 	return (
 		<>
@@ -22,6 +24,8 @@ export default function Recipe({ categories }) {
 
 			<section className={styles.recipePage}>
 				<Category items={categories} onClick={setSelected} />
+
+				{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={el.strMeal} />)}
 			</section>
 		</>
 	);

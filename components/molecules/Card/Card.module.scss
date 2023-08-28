@@ -1,2 +1,13 @@
 .card {
+	width: 30%;
+	height: 30vh;
+	margin-bottom: 100px;
+	opacity: 0.5;
+	filter: saturate(20%);
+	transition: 0.5s;
+
+	&:hover {
+		opacity: 1;
+		filter: saturate(100%);
+	}
 }
