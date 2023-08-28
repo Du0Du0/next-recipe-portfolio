@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import axios from 'axios';
 import Swiper from '@/components/organisms/Swiper/Swiper';
+
 export default function Home({ meals, category }) {
 	return (
 		<>
