@@ -3,29 +3,15 @@ import styles from './style.module.scss';
 import Swiper from '@/components/organisms/Swiper/Swiper';
 
 export default function Home({ meals, category }) {
-	//idMeal
-	//strMeal
-	//strMealThumb
-	// console.log(meals);
-	// console.log(category);
-
 	return (
 		<>
 			<Head>
 				<title>Main Page</title>
-				<Swiper recipe={meals.slice(0, 6)} category={category} />
-				{/* 
-				Swiper 컴포넌트 작업 계획		
-				Swiper - organisms
-				SwiperSlide - molecules
-				ImgList - molecules
-				ImgSlide - atom
-				Controls - molecules
-				Counter - molecules
-				Button - atom			
-			*/}
 			</Head>
-			<div className={styles.box}></div>
+
+			<main>
+				<Swiper recipe={meals.slice(0, 6)} category={category} />
+			</main>
 		</>
 	);
 }
@@ -39,14 +25,10 @@ export async function getStaticProps() {
 	const newList = list.filter((el) => el !== 'Goat' && el !== 'Vegan' && el !== 'Starter');
 
 	const randomNum = Math.floor(Math.random() * newList.length);
-
 	const { data } = await axios.get(`/filter.php?c=${newList[randomNum]}`);
 
 	return {
-		//이전에 가져온 응답 데이터를 props 속성에 할당하여 해당 데이터를 페이지 컴포넌트 내에서 사용
 		props: { ...data, category: newList[randomNum] },
-		//아래 추가하면 ISR 방식으로 변경
-		//24시간마다 재생성
-		revalidate: 10,
+		revalidate: 60 * 60 * 24,
 	};
 }

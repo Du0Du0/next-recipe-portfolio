@@ -10,5 +10,4 @@ function Detail() {
 		</section>
 	);
 }
-
 export default Detail;
