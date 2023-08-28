@@ -46,5 +46,7 @@ export const useRecipeById = (DebounceId) => {
 		refetchOnWindowFocus: false,
 		cacheTime: 1000 * 60 * 60 * 24,
 		staleTime: 1000 * 60 * 60 * 24,
+		retry: 3, //데이터 요청 시도 횟수(디폴트3, 네트워트상황이 안좋을때 재시도횟수 늘림)
+		enabled: true, //useQuery의 호출 유무 true(실행, 디폴트값) false(실행안함)
 	});
 };
