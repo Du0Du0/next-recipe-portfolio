@@ -9,15 +9,13 @@ import { useDebounce } from '@/hooks/useDebounce';
 import Card from '@/components/molecules/Card/Card';
 import { Title } from '@/components/atoms/text/Title';
 import clsx from 'clsx';
+import SearchBar from '@/components/molecules/SearchBar/SearchBar';
 
 export default function Recipe({ categories }) {
 	const [Selected, setSelected] = useState(categories[0].strCategory);
-
-	//useDebounce는 컴포넌트의 재랜더링 자체를 막는 것이 아닌
-	//특정 State가 변경될때마다 실행되는 무거운 함수의 호출 자체를 Debouncing하기 위함
+	const [Search, setSearch] = useState('');
 	const DebouncedSelected = useDebounce(Selected);
 	const { data: dataByCategory, isSuccess: isCategory } = useRecipeByCategory(DebouncedSelected);
-	const { data, isSuccess } = useRecipeByCategory(DebouncedSelected);
 	return (
 		<>
 			<Head>
@@ -31,6 +29,8 @@ export default function Recipe({ categories }) {
 				<Title type={'slogan'} className={clsx(styles.titCategory)}>
 					{DebouncedSelected}
 				</Title>
+
+				<SearchBar inputType={'text'} isBtn={false} placeholder={'search'} value={Search} onChange={setSearch} />
 
 				<div className={clsx(styles.listFrame)}>
 					{isCategory && dataByCategory.map((el) => <Card key={el.idMeal} imgSrc={el.strMealThumb} url={`/find-recipe/${el.idMeal}`} txt={el.strMeal} className={clsx(styles.card)} />)}
