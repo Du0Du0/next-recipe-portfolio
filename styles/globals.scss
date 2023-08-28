@@ -14,3 +14,24 @@ a {
 	text-decoration: none;
 	outline: 0;
 }
+
+.in {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: orange;
+	transform-origin: left;
+	z-index: 5;
+}
+.out {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: orange;
+	transform-origin: right;
+	z-index: 5;
+}
