@@ -7,7 +7,9 @@ export default function Home({ meals, category }) {
 			<Head>
 				<title>Main Page</title>
 			</Head>
-			<Swiper recipe={meals.slice(0, 6)} category={category} />
+			<main>
+				<Swiper recipe={meals.slice(0, 6)} category={category} />
+			</main>
 		</>
 	);
 }

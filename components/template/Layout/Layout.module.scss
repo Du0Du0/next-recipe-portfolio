@@ -17,5 +17,13 @@
 			border-radius: 2px;
 			background: orange;
 		}
+
+		> main {
+			width: 100%;
+		}
+		> section {
+			width: 80vw;
+			margin: 0px auto;
+		}
 	}
 }
