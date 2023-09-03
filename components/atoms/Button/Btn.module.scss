@@ -1,16 +1,31 @@
 .btn {
-	cursor: pointer;
-	background: transparent;
-	display: inline-block;
 	padding: 5px 10px;
-	border: 1px solid #666;
-	font: 12px/1 'arial';
-	color: #bbb;
-	transition: 0.5s;
+	width: 108px;
+	height: 41px;
+	background: #1b2539;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	transform: translate(0, -5%);
+	font: 15px/1 var(--font-roboto);
+	cursor: pointer;
+	margin: 20px 0 60px 0;
+	margin-right: 15px;
 
 	&:hover,
 	&.on {
-		color: orange;
-		border: 1px solid orange;
+		color: #fec202;
+		border: 1px solid #fec202;
 	}
+}
+.btn2 {
+	width: 108px;
+	height: 41px;
+	background: #6e6e6e;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	transform: translate(0, -5%);
+	font: 15px/1 var(--font-roboto);
+	cursor: pointer;
 }

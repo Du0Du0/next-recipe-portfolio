@@ -1,6 +1,6 @@
 .tit {
 	color: #bbb;
-	font-family: var(--font-nanum);
+	font-family: var(--font-roboto);
 	font-weight: 400;
 	font-size: 16px;
 
@@ -12,11 +12,13 @@
 	}
 
 	&.tit_logo {
-		font-family: var(--font-nanum);
+		font-family: var(--font-orbitron);
 		font-weight: 700;
 		color: #fff;
-		font-size: 22px;
+		font-size: 25px;
+		margin-bottom: 15px;
 	}
+
 	&.tit_subTitle {
 		font-size: 20px;
 		color: #ccc;
@@ -25,7 +27,7 @@
 	&.tit_slogan {
 		font-size: 5vw;
 		color: #fff;
-		font-family: var(--font-nanum);
+		font-family: var(--font-roboto);
 	}
 	&:hover {
 		color: orange;

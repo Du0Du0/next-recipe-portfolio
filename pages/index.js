@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import axios from 'axios';
 import Swiper from '@/components/organisms/Swiper/Swiper';
+import WorldGlobe from '@/components/organisms/WorldGlobe/WorldGlobe';
 
-export default function Home({ meals, category }) {
+export default function Home({ meals, country }) {
 	return (
 		<>
 			<Head>
@@ -10,7 +11,9 @@ export default function Home({ meals, category }) {
 			</Head>
 
 			<main>
-				<Swiper recipe={meals.slice(0, 6)} category={category} />
+				<WorldGlobe country={country} />
+
+				{/* <Swiper recipe={meals.slice(0, 6)} category={category} /> */}
 			</main>
 		</>
 	);

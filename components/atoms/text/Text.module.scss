@@ -1,7 +1,8 @@
 .txt {
-	font-family: 'arial';
+	font-family: var(--font-roboto);
 	color: #aaa;
 	font-size: 16px;
+	line-height: 1.3;
 	font-weight: normal;
 
 	* {
@@ -12,14 +13,20 @@
 	}
 
 	&.txt_menu {
-		font-family: var(--font-nanum);
+		font-family: var(--font-orbitron);
 		font-weight: 400;
-		font-style: italic;
+		font-size: 20px;
 
 		&:hover,
 		&.on {
 			color: orange;
 		}
+	}
+
+	&.txt_desc {
+		font-family: var(--font-roboto);
+		font-weight: 400;
+		color: #cacaca;
 	}
 
 	&.txt_util {
